@@ -15,7 +15,7 @@ type Handler struct {
 func NewHandler(logger *logger.Logger) *Handler {
 	return &Handler{
 		logger:    logger,
-		converter: converter.NewConverter(logger),
-		client:    client.NewClient(logger),
+		converter: converter.NewConverter(),
+		client:    client.NewClient(),
 	}
 }

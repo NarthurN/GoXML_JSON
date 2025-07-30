@@ -15,4 +15,5 @@ var (
 
 	// Ошибки преобразования
 	ErrEmptyData  = errors.New("❌ данные пусты")
+	ErrNoUsers    = errors.New("❌ нет пользователей")
 )

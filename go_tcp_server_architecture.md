@@ -244,23 +244,23 @@ func (c *Config) Validate() error
 func main() {
     // 1. Загрузка конфигурации
     cfg := config.LoadConfig()
-    
+
     // 2. Создание логгера
     logger, err := logger.NewLogger(cfg.LogFile)
     if err != nil {
         log.Fatal("Failed to create logger:", err)
     }
     defer logger.Close()
-    
+
     // 3. Создание обработчика с встроенными компонентами
     handler := handler.NewHandler(logger, cfg.AuthKey)
-    
+
     // 4. Настройка и запуск HTTP-сервера
     server := &http.Server{
         Addr:    ":" + cfg.ServerPort,
         Handler: handler,
     }
-    
+
     logger.LogInfo("Server starting on port " + cfg.ServerPort)
     log.Fatal(server.ListenAndServe())
 }

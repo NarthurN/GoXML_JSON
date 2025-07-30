@@ -9,9 +9,11 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/NarthurN/GoXML_JSON/internal/client"
+	"github.com/NarthurN/GoXML_JSON/internal/converter"
 	"github.com/NarthurN/GoXML_JSON/internal/handler"
+	appMiddleware "github.com/NarthurN/GoXML_JSON/internal/middleware"
 	"github.com/NarthurN/GoXML_JSON/pkg/logger"
-	appMiddleware "github.com/NarthurN/GoXML_JSON/pkg/middleware"
 	"github.com/NarthurN/GoXML_JSON/settings"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -26,20 +28,22 @@ func main() {
 
 	logg.Log("✅ логгер инциализирован")
 
-	handler := handler.NewHandler(logg)
+	converter := converter.NewConverter()
+	logg.Log("✅ конвертер инциализирован")
+
+	client := client.NewClient()
+	logg.Log("✅ клиент инциализирован")
+
+	handler := handler.NewHandler(logg, converter, client)
 	logg.Log("✅ обработчик инциализирован")
 
 	// Создаем роутер
 	r := chi.NewRouter()
 
 	// Используем middleware от chi для надежности
-	r.Use(middleware.RequestID)                       // Добавляет уникальный ID каждому запросу
-	r.Use(middleware.RealIP)                          // Использует реальный IP клиента
-	r.Use(middleware.Logger)                          // Логирует запросы (от chi, не ваш)
+	r.Use(middleware.Logger)                          // Логирует запросы (от chi в stdout)
 	r.Use(middleware.Recoverer)                       // Перехватывает паники и возвращает 500
 	r.Use(middleware.Timeout(settings.ClientTimeout)) // Таймаут на весь запрос
-
-	r.Post("/users", handler.Users)
 
 	// Настройка маршрутов
 	// Группируем роуты, которые требуют авторизации

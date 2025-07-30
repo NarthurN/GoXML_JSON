@@ -12,10 +12,10 @@ type Handler struct {
 	client    *client.Client
 }
 
-func NewHandler(logger *logger.Logger) *Handler {
+func NewHandler(logger *logger.Logger, converter *converter.Converter, client *client.Client) *Handler {
 	return &Handler{
 		logger:    logger,
-		converter: converter.NewConverter(),
-		client:    client.NewClient(),
+		converter: converter,
+		client:    client,
 	}
 }

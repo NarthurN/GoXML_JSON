@@ -1,3 +1,4 @@
+// Пакет client содержит функцию для отправки пользователей на сервер
 package client
 
 import (
@@ -11,6 +12,7 @@ import (
 	"github.com/NarthurN/GoXML_JSON/internal/models"
 )
 
+// SendUsers отправляет пользователей на сервер
 func (c *Client) SendUsers(ctx context.Context, users []models.JSONUser) ([]byte, error) {
 	jsonData, err := json.Marshal(users)
 	if err != nil {

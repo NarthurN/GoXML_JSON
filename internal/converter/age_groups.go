@@ -1,9 +1,9 @@
 package converter
 
 const (
-	AgeGroupYang = "до 25"
+	AgeGroupYang   = "до 25"
 	AgeGroupMiddle = "от 25 до 35"
-	AgeGroupOld = "старше 35"
+	AgeGroupOld    = "старше 35"
 )
 
 // GetAgeGroup - функция для определения возрастной группы

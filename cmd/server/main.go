@@ -41,7 +41,7 @@ func main() {
 	r := chi.NewRouter()
 
 	// Используем middleware от chi для надежности
-	r.Use(middleware.Logger)                          // Логирует запросы (от chi в stdout)
+	//r.Use(middleware.Logger)                          // Логирует запросы (от chi в stdout) для тестов
 	r.Use(middleware.Recoverer)                       // Перехватывает паники и возвращает 500
 	r.Use(middleware.Timeout(settings.ClientTimeout)) // Таймаут на весь запрос
 

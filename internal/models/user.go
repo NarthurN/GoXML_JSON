@@ -18,8 +18,8 @@ type XMLUser struct {
 
 // JSONUser - структура для хранения одного пользователя в формате JSON
 type JSONUser struct {
-	ID       string `json:"id"`       // ID пользователя
+	ID       string `json:"id"`        // ID пользователя
 	FullName string `json:"full_name"` // Имя пользователя
-	Email    string `json:"email"`    // Email пользователя
+	Email    string `json:"email"`     // Email пользователя
 	AgeGroup string `json:"age_group"` // Возрастная группа пользователя
 }

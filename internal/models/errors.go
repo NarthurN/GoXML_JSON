@@ -14,6 +14,6 @@ var (
 	ErrEmptyUsers = errors.New("❌ нет пользователей в XML")
 
 	// Ошибки преобразования
-	ErrEmptyData  = errors.New("❌ данные пусты")
-	ErrNoUsers    = errors.New("❌ нет пользователей")
+	ErrEmptyData = errors.New("❌ данные пусты")
+	ErrNoUsers   = errors.New("❌ нет пользователей")
 )

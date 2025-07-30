@@ -14,8 +14,8 @@ const (
 	ClientTimeout = 10 * time.Second
 
 	// Настроки сервера
-	ServerHost = "localhost"
-	ServerPort = "8080"
+	ServerHost      = "localhost"
+	ServerPort      = "8080"
 	ShutdownTimeout = 5 * time.Second
 
 	// ClientURL - базовый URL для HTTP запросов

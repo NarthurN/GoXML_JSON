@@ -1,0 +1,12 @@
+	<users>
+	    <user id="1">
+	        <name>Иван Иванов</name>
+	        <email>ivan@example.com</email>
+	        <age>30</age>
+	    </user>
+	    <user id="2">
+	        <name>Мария Петрова</name>
+	        <email>maria@example.com</email>
+	        <age>25</age>
+	    </user>
+	</users>
